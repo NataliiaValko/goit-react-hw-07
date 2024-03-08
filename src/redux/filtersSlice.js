@@ -8,11 +8,7 @@ const filtersSlice = createSlice({
       state.name = payload;
     },
   },
-  selectors: {
-    selectName: state => state.name,
-  },
 });
 
 export const { changeFilter } = filtersSlice.actions;
-export const { selectName } = filtersSlice.selectors;
 export const filtersReducer = filtersSlice.reducer;

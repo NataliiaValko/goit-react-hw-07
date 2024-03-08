@@ -1,13 +1,15 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { addContact } from '../../redux/contactsSlice';
+import { selectLoading } from '../../redux/selectors';
+import { addContact } from '../../redux/operations';
 
 import styles from './ContactForm.module.css';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
+  const loading = useSelector(selectLoading);
 
   return (
     <Formik
@@ -41,7 +43,7 @@ const ContactForm = () => {
         </label>
         <ErrorMessage name="number" component="div" />
 
-        <button type="submit" className={styles.button}>
+        <button type="submit" className={styles.button} disabled={loading}>
           Add contact
         </button>
       </Form>

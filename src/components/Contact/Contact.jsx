@@ -1,11 +1,13 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { deleteContact } from '../../redux/contactsSlice';
+import { deleteContact } from '../../redux/operations';
+import { selectLoading } from '../../redux/selectors';
 
 import styles from './Contact.module.css';
 
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();
+  const loading = useSelector(selectLoading);
 
   const handleDelete = () => {
     dispatch(deleteContact(id));
@@ -19,7 +21,7 @@ const Contact = ({ name, number, id }) => {
           <p className={styles.number}>{number}</p>
         </div>
         <button onClick={handleDelete} className={styles.button} type="button">
-          Delete
+          {loading ? '...' : 'Delete'}
         </button>
       </div>
     </>

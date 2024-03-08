@@ -1,7 +1,9 @@
 import { createSelector } from 'reselect';
 
-import { selectName } from './filtersSlice';
-import { selectContacts } from './contactsSlice';
+export const selectContacts = state => state.contacts.items;
+export const selectLoading = state => state.contacts.loading;
+export const selectError = state => state.contacts.error;
+export const selectName = state => state.filters.name;
 
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectName],

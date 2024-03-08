@@ -25,4 +25,8 @@
   color: white;
   font-weight: 500;
   width: 100px;
+
+  &:disabled {
+    background-color: grey;
+  }
 }
