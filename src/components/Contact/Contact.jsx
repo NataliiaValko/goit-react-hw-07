@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { deleteContact } from '../../redux/operations';
-import { selectLoading } from '../../redux/selectors';
+import { deleteContact } from '../../redux/contactsOps';
+import { selectLoading } from '../../redux/contactsSlice';
 
 import styles from './Contact.module.css';
 
@@ -21,7 +21,7 @@ const Contact = ({ name, number, id }) => {
           <p className={styles.number}>{number}</p>
         </div>
         <button onClick={handleDelete} className={styles.button} type="button">
-          {loading ? '...' : 'Delete'}
+          {loading ? '...' : ' Delete'}
         </button>
       </div>
     </>
